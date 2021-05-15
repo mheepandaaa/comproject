@@ -15,7 +15,6 @@ struct Remainder{
 };
 struct Remainder R;
 
-
 COORD xy = {0, 0};
 
 void gotoxy (int x, int y)
@@ -105,7 +104,6 @@ void decrease_month(int *mm,  int *yy){ //decrease the month by one
         *mm = *mm + 12;
     }
 }
-
 
 int getNumberOfDays(int month,int year){ //returns the number of days in given month
    switch(month){                          //and year
