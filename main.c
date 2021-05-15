@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include<conio.h>
 #include<windows.h>
-
 struct Date{
     int dd;
     int mm;
@@ -21,19 +20,22 @@ COORD xy = {0, 0};
 
 void gotoxy (int x, int y)
 {
-        xy.X = x; xy.Y = y;
+        xy.X = x; xy.Y = y; // X and Y coordinates
         SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), xy);
 }
 
-//setสีบนconsole
+//This will set the forground color for printing in a console window.
 void SetColor(int ForgC)
 {
      WORD wColor;
+     //get the current background attribute
      HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
      CONSOLE_SCREEN_BUFFER_INFO csbi;
 
+     //use csbi for the wAttributes word.
      if(GetConsoleScreenBufferInfo(hStdOut, &csbi))
      {
+        //Mask out all but the background attribute, and add in the forgournd color
           wColor = (csbi.wAttributes & 0xF0) + (ForgC & 0x0F);
           SetConsoleTextAttribute(hStdOut, wColor);
      }
@@ -47,18 +49,25 @@ void ClearColor(){
 void ClearConsoleToColors(int ForgC, int BackC)
 {
      WORD wColor = ((BackC & 0x0F) << 4) + (ForgC & 0x0F);
+     //Get the handle to the current output buffer...
      HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+     //This is used to reset the carat/cursor to the top left.
      COORD coord = {0, 0};
+     //A return value... indicating how many chars were written
+     //   not used but we need to capture this since it will be
      DWORD count;
 
+     //This is a structure containing all of the console info
      CONSOLE_SCREEN_BUFFER_INFO csbi;
-     //setสีปัจจุบัน
+     //set the current color
      SetConsoleTextAttribute(hStdOut, wColor);
      if(GetConsoleScreenBufferInfo(hStdOut, &csbi))
      {
+          //This fills the buffer with a given character (in this case 32=space).
           FillConsoleOutputCharacter(hStdOut, (TCHAR) 32, csbi.dwSize.X * csbi.dwSize.Y, coord, &count);
 
           FillConsoleOutputAttribute(hStdOut, csbi.wAttributes, csbi.dwSize.X * csbi.dwSize.Y, coord, &count );
+          //This will set our cursor position for the next print statement.
           SetConsoleCursorPosition(hStdOut, coord);
      }
      return;
@@ -71,13 +80,13 @@ void SetColorAndBackground(int ForgC, int BackC)
      return;
 }
 
-int check_leapYear(int year){ //check ว่าปีที่ผ่านเป็น leap year ไหม
+int check_leapYear(int year){ //checks whether the year passed is leap year or not
     if(year % 400 == 0 || (year % 100!=0 && year % 4 ==0))
        return 1;
     return 0;
 }
 
-void increase_month(int *mm,  int *yy){ //เพิ่มเดือน
+void increase_month(int *mm,  int *yy){ //increase the month by one
     ++*mm;
     if(*mm > 12){
         ++*yy;
@@ -85,7 +94,7 @@ void increase_month(int *mm,  int *yy){ //เพิ่มเดือน
     }
 }
 
-void decrease_month(int *mm,  int *yy){ //ลดเดือน
+void decrease_month(int *mm,  int *yy){ //decrease the month by one
     --*mm;
     if(*mm < 1){
         --*yy;
@@ -98,8 +107,8 @@ void decrease_month(int *mm,  int *yy){ //ลดเดือน
 }
 
 
-int getNumberOfDays(int month,int year){ //return วัน
-   switch(month){                          //ปี
+int getNumberOfDays(int month,int year){ //returns the number of days in given month
+   switch(month){                          //and year
       case 1 : return(31);
       case 2 : if(check_leapYear(year)==1)
 		 return(29);
@@ -119,7 +128,7 @@ int getNumberOfDays(int month,int year){ //return วัน
    }
 }
 
-char *getName(int day){ //return วันอะไร
+char *getName(int day){ //returns the name of the day
    switch(day){
       case 0 :return("Sunday");
       case 1 :return("Monday");
@@ -132,7 +141,7 @@ char *getName(int day){ //return วันอะไร
    }
 }
 
-void print_date(int mm, int yy){ //print เดือน ปี
+void print_date(int mm, int yy){ //prints the name of month and year
     printf("---------------------------\n");
     gotoxy(25,6);
     switch(mm){
@@ -153,7 +162,7 @@ void print_date(int mm, int yy){ //print เดือน ปี
     gotoxy(20,7);
     printf("---------------------------");
 }
-int getDayNumber(int day,int mon,int year){ //return วันที่
+int getDayNumber(int day,int mon,int year){ //retuns the day number
     int res = 0, t1, t2, y = year;
     year = year - 1600;
     while(year >= 100){
@@ -214,7 +223,7 @@ int checkNote(int dd, int mm){
     return 0;
 }
 
-void printMonth(int mon,int year,int x,int y){ //print เดือนกับวัน
+void printMonth(int mon,int year,int x,int y){ //prints the month with all days
     int nod, day, cnt, d = 1, x1 = x, y1 = y, isNote = 0;
     if(!(mon>=1 && mon<=12)){
         printf("INVALID MONTH");
@@ -234,7 +243,7 @@ void printMonth(int mon,int year,int x,int y){ //print เดือนกับวัน
     y++;
     nod = getNumberOfDays(mon,year);
     day = getDayNumber(d,mon,year);
-    switch(day){ //locates วันเริ่ม
+    switch(day){ //locates the starting day in calender
         case 0 :
             x=x;
             cnt=1;
@@ -358,8 +367,8 @@ void showNote(int mm){
 }
 
 int main(){
-    ClearConsoleToColors(15, 5);
-    SetConsoleTitle("Calender Compro Project");
+    ClearConsoleToColors(15, 1);
+    SetConsoleTitle("Calender Project Compro");
     int choice;
     char ch = 'a';
     while(1){
