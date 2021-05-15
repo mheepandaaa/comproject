@@ -366,7 +366,7 @@ void showNote(int mm){
 
 int main(){
     ClearConsoleToColors(15, 1);
-    SetConsoleTitle("Calender Project Compro");
+    SetConsoleTitle("Calendar Project Compro");
     int choice;
     char ch = 'a';
     while(1){
