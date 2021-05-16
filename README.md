@@ -1,5 +1,5 @@
 # Calendar Application
-Computer Programming Project KMITL Semester 2/2020 1st Year
+Computer Programming Project
 ## บทคัดย่อ
 โปรแกรม "Calendar Application By GLHF" นี้มีจุดประสงค์จัดทำขึ้นมาเพื่อเป็นโปรแกรมเพื่อการศึกษา 
 เป็นแอพพลิเคชั่นสำหรับผู้ที่ต้องการดูปฏิทินหรือบันทึกโน๊ตลงบนปฏิทิน และสามารถเรียกดูได้ 
@@ -10,7 +10,9 @@ Computer Programming Project KMITL Semester 2/2020 1st Year
 ## วิดีโอนำเสนอ
 
 ## โปสเตอร์
-
+ [Poster (download)](https://drive.google.com/file/d/1pTgNiWkKrULAtyketxVTuIhYePELrDyf/view?usp=sharing)
+ 
+![Poster (download)](calendar poster.png)
 ---
 สมาชิก
 ---
