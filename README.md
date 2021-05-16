@@ -14,4 +14,4 @@ Computer Programming Project KMITL Semester 2/2020 1st Year
 | :-------- | :-------- |:--------- |
 |   63070044   |   ฏังกบดี สถิตเกษมสานต์   |   [](https://github.com/)   |
 |   63070067   |   ทัชชน เจริญภูวดล   |  [](https://github.com/)   |
-|   63070084   |   ธานี ลายธีระพงศ์   |   [](https://github.com/mheepandaaa)   |
+|   63070084   |   ธานี ลายธีระพงศ์   |   [mheepandaaa](https://github.com/mheepandaaa)   |
