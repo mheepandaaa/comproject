@@ -12,7 +12,7 @@ Computer Programming Project
 ## โปสเตอร์
  [Poster (download)](https://drive.google.com/file/d/1pTgNiWkKrULAtyketxVTuIhYePELrDyf/view?usp=sharing)
  
-![Poster (download)](calendar poster.png)
+ ![Poster (download)](calendar poster.png)
 ---
 สมาชิก
 ---
