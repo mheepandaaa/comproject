@@ -20,5 +20,5 @@ Computer Programming Project
 | รหัสนักศึกษา | ชื่อ - นามสกุล | Github |
 | :-------- | :-------- |:--------- |
 |   63070044   |   ฏังกบดี สถิตเกษมสานต์   |   [](https://github.com/it63070044)   |
-|   63070067   |   ทัชชน เจริญภูวดล   |  [](https://github.com/thatchon)   |
+|   63070067   |   ทัชชน เจริญภูวดล   |  [thatchon](https://github.com/thatchon)   |
 |   63070084   |   ธานี ลายธีระพงศ์   |   [mheepandaaa](https://github.com/mheepandaaa)   |
